@@ -8,40 +8,6 @@
 
 var pluralize = require('pluralize');
 
-var transform = function(doc, ret, options) {
-    if(doc.schema == schema) {
-        for(var i in fields) {
-            var field = fields[i];
-            var pluralField = pluralize.plural(field);
-            if(ret[pluralField]) {
-                if(ret[pluralField].length === 1) {
-                    ret[field] = ret[pluralField][0].value;
-                    delete ret[pluralField];
-                    return ret;
-                }
-                else if(doc.language) {
-                    var finalValue;
-                    for(var i in ret[pluralField]) {
-                        var string = ret[pluralField][i];
-                        if(string.lang === doc.language) {
-                            if(string.official) {
-                                finalValue = string.value;
-                                break;
-                            }
-                        }
-                        else if(string.lang === defaultLanguage && string.official) {
-                            finalValue = string.value;
-                        }
-                    }
-                    delete ret[pluralField];
-                    ret[field] = finalValue;
-                    return ret;
-                }
-            }
-        }
-    }
-};
-
 var multilingualFieldsPlugin = function(schema, options) {
     var languages = options.languages || ["en"];
     var fields = options.fields || [];
@@ -65,6 +31,40 @@ var multilingualFieldsPlugin = function(schema, options) {
     schema.virtual("language").get(function() {
         return this._lang;
     });
+
+    var transform = function(doc, ret, options) {
+        if(doc.schema == schema) {
+            for(var i in fields) {
+                var field = fields[i];
+                var pluralField = pluralize.plural(field);
+                if(ret[pluralField]) {
+                    if(ret[pluralField].length === 1) {
+                        ret[field] = ret[pluralField][0].value;
+                        delete ret[pluralField];
+                        return ret;
+                    }
+                    else if(doc.language) {
+                        var finalValue;
+                        for(var i in ret[pluralField]) {
+                            var string = ret[pluralField][i];
+                            if(string.lang === doc.language) {
+                                if(string.official) {
+                                    finalValue = string.value;
+                                    break;
+                                }
+                            }
+                            else if(string.lang === defaultLanguage && string.official) {
+                                finalValue = string.value;
+                            }
+                        }
+                        delete ret[pluralField];
+                        ret[field] = finalValue;
+                        return ret;
+                    }
+                }
+            }
+        }
+    };
 
     schema.set("toJSON", {
         "transform": transform
