@@ -52,7 +52,6 @@ var multilingualFieldsPlugin = function(schema, options) {
                 var field = fields[i];
                 var pluralField = pluralize.plural(field.name);
                 if(ret[pluralField]) {
-                    console.log(pluralField);
                     if(ret[pluralField].length === 0) {
                         delete ret[pluralField];
                     }
