@@ -1,8 +1,12 @@
 {
   "name": "mongoose-multilang",
   "description": "Plugin for mongoose ORM that supports multilingual resources",
-  "version": "0.0.1",
-  "maintainers": [
+  "version": "0.1.0",
+  "author": "Florian Reifschneider <florian@studentica.co>",
+  "keywords": [
+    "mongodb", "mongoose", "internationalization", "i18n", "language"
+  ],
+  "contributors": [
     {
       "name": "Florian Reifschneider",
       "email": "flore2003@googlemail.com"
