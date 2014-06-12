@@ -1,0 +1,26 @@
+{
+  "name": "mongoose-multilang",
+  "description": "Plugin for mongoose ORM that supports multilingual resources",
+  "version": "0.0.1",
+  "maintainers": [
+    {
+      "name": "Florian Reifschneider",
+      "email": "flore2003@googlemail.com"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "git",
+      "url": "git+ssh://git@github.com:studentica/mongoose-multilang.git"
+    }
+  ],
+  "licenses": [
+    {
+      "name": "Apache License v2",
+      "url": "http://www.apache.org/licenses/"
+    }
+  ],
+  "dependencies": {
+    "pluralize": "0.0.10"
+  }
+}
