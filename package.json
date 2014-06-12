@@ -4,27 +4,30 @@
   "version": "0.1.0",
   "author": "Florian Reifschneider <florian@studentica.co>",
   "keywords": [
-    "mongodb", "mongoose", "internationalization", "i18n", "language"
+    "mongodb",
+    "mongoose",
+    "internationalization",
+    "i18n",
+    "language"
   ],
   "contributors": [
-    {
-      "name": "Florian Reifschneider",
-      "email": "flore2003@googlemail.com"
-    }
-  ],
-  "repositories": [
-    {
-      "type": "git",
-      "url": "git+ssh://git@github.com:studentica/mongoose-multilang.git"
-    }
-  ],
-  "licenses": [
-    {
-      "name": "Apache License v2",
-      "url": "http://www.apache.org/licenses/"
-    }
+    "Florian Reifschneider <flore2003@googlemail.com>"
   ],
   "dependencies": {
     "pluralize": "0.0.10"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:studentica/mongoose-multilang.git#0.1.0"
+  },
+  "bugs": {
+    "url": "https://github.com/studentica/mongoose-multilang/issues"
+  },
+  "homepage": "https://github.com/studentica/mongoose-multilang",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "MIT"
 }
